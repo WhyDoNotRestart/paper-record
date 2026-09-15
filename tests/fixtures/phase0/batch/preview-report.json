@@ -1,0 +1,49 @@
+{
+  "schema_version": 4,
+  "source": "03-逐篇精读/P001--2024--fixture/02-深度说理报告.md",
+  "preview": "preview-report.html",
+  "renderer": "markdown",
+  "target_count": 2,
+  "broken_count": 0,
+  "passed": true,
+  "targets": [
+    {
+      "kind": "image",
+      "target": "../../04-证据仓/P001--2024--fixture/figures/valid.png",
+      "target_type": "image",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\04-证据仓\\P001--2024--fixture\\figures\\valid.png",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": true,
+      "render_status": "passed",
+      "renderer": "markdown",
+      "media": {
+        "format_valid": true,
+        "media_type": "image",
+        "width": 32,
+        "height": 24,
+        "pages": null,
+        "reason": "decoded"
+      }
+    },
+    {
+      "kind": "link",
+      "target": "../../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "target_type": "pdf",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\04-证据仓\\P001--2024--fixture\\source\\P001--2024--fixture.pdf",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": true,
+      "render_status": "passed",
+      "renderer": "markdown",
+      "media": {
+        "format_valid": true,
+        "media_type": "pdf",
+        "width": null,
+        "height": null,
+        "pages": 1,
+        "reason": "parsed"
+      }
+    }
+  ]
+}

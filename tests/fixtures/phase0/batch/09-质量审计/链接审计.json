@@ -1,56 +1,168 @@
 {
+  "schema_version": 4,
   "root": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch",
   "link_count": 6,
-  "broken": [],
+  "broken": [
+    {
+      "source": "00-开始/entry.md",
+      "syntax": "image",
+      "target": "../04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "target_type": "image",
+      "resolved": "04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": false,
+      "media": {
+        "format_valid": false,
+        "media_type": "image",
+        "width": null,
+        "height": null,
+        "pages": null,
+        "reason": "image-invalid:UnidentifiedImageError:cannot identify image file 'C:\\\\Users\\\\12770\\\\.codex\\\\skills\\\\papaer-record\\\\tests\\\\fixtures\\\\phase0\\\\batch\\\\04-证据仓\\\\P001--2024--fixture\\\\figures\\\\invalid.png'"
+      },
+      "render_status": "not-run",
+      "renderer": "html"
+    }
+  ],
   "directory_targets": [],
+  "invalid_media": [
+    {
+      "source": "00-开始/entry.md",
+      "syntax": "image",
+      "target": "../04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "target_type": "image",
+      "resolved": "04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": false,
+      "media": {
+        "format_valid": false,
+        "media_type": "image",
+        "width": null,
+        "height": null,
+        "pages": null,
+        "reason": "image-invalid:UnidentifiedImageError:cannot identify image file 'C:\\\\Users\\\\12770\\\\.codex\\\\skills\\\\papaer-record\\\\tests\\\\fixtures\\\\phase0\\\\batch\\\\04-证据仓\\\\P001--2024--fixture\\\\figures\\\\invalid.png'"
+      },
+      "render_status": "not-run",
+      "renderer": "html"
+    }
+  ],
   "rows": [
     {
       "source": "00-开始/entry.md",
       "syntax": "wikilink",
       "target": "../03-逐篇精读/P001--2024--fixture/02-深度说理报告",
+      "target_type": "markdown",
       "resolved": "03-逐篇精读/P001--2024--fixture/02-深度说理报告.md",
       "exists": true,
-      "is_directory": false
-    },
-    {
-      "source": "00-开始/entry.md",
-      "syntax": "markdown",
-      "target": "../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
-      "resolved": "04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
-      "exists": true,
-      "is_directory": false
+      "is_directory": false,
+      "format_valid": true,
+      "media": {
+        "format_valid": true,
+        "reason": "file-ok"
+      },
+      "render_status": "not-run",
+      "renderer": "html"
     },
     {
       "source": "00-开始/entry.md",
       "syntax": "image",
       "target": "../04-证据仓/P001--2024--fixture/figures/valid.png",
+      "target_type": "image",
       "resolved": "04-证据仓/P001--2024--fixture/figures/valid.png",
       "exists": true,
-      "is_directory": false
+      "is_directory": false,
+      "format_valid": true,
+      "media": {
+        "format_valid": true,
+        "media_type": "image",
+        "width": 32,
+        "height": 24,
+        "pages": null,
+        "reason": "decoded"
+      },
+      "render_status": "not-run",
+      "renderer": "html"
     },
     {
       "source": "00-开始/entry.md",
       "syntax": "image",
       "target": "../04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "target_type": "image",
       "resolved": "04-证据仓/P001--2024--fixture/figures/invalid.png",
       "exists": true,
-      "is_directory": false
+      "is_directory": false,
+      "format_valid": false,
+      "media": {
+        "format_valid": false,
+        "media_type": "image",
+        "width": null,
+        "height": null,
+        "pages": null,
+        "reason": "image-invalid:UnidentifiedImageError:cannot identify image file 'C:\\\\Users\\\\12770\\\\.codex\\\\skills\\\\papaer-record\\\\tests\\\\fixtures\\\\phase0\\\\batch\\\\04-证据仓\\\\P001--2024--fixture\\\\figures\\\\invalid.png'"
+      },
+      "render_status": "not-run",
+      "renderer": "html"
     },
     {
-      "source": "03-逐篇精读/P001--2024--fixture/02-深度说理报告.md",
+      "source": "00-开始/entry.md",
       "syntax": "markdown",
-      "target": "../../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "target": "../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "target_type": "pdf",
       "resolved": "04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
       "exists": true,
-      "is_directory": false
+      "is_directory": false,
+      "format_valid": true,
+      "media": {
+        "format_valid": true,
+        "media_type": "pdf",
+        "width": null,
+        "height": null,
+        "pages": 1,
+        "reason": "parsed"
+      },
+      "render_status": "not-run",
+      "renderer": "html"
     },
     {
       "source": "03-逐篇精读/P001--2024--fixture/02-深度说理报告.md",
       "syntax": "image",
       "target": "../../04-证据仓/P001--2024--fixture/figures/valid.png",
+      "target_type": "image",
       "resolved": "04-证据仓/P001--2024--fixture/figures/valid.png",
       "exists": true,
-      "is_directory": false
+      "is_directory": false,
+      "format_valid": true,
+      "media": {
+        "format_valid": true,
+        "media_type": "image",
+        "width": 32,
+        "height": 24,
+        "pages": null,
+        "reason": "decoded"
+      },
+      "render_status": "not-run",
+      "renderer": "html"
+    },
+    {
+      "source": "03-逐篇精读/P001--2024--fixture/02-深度说理报告.md",
+      "syntax": "markdown",
+      "target": "../../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "target_type": "pdf",
+      "resolved": "04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": true,
+      "media": {
+        "format_valid": true,
+        "media_type": "pdf",
+        "width": null,
+        "height": null,
+        "pages": 1,
+        "reason": "parsed"
+      },
+      "render_status": "not-run",
+      "renderer": "html"
     }
   ]
 }

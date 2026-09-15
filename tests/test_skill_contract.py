@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Isolated smoke tests for Paper Record 3.0 skill contracts."""
 from __future__ import annotations
-import json, subprocess, sys, tempfile, unittest
+import base64, json, subprocess, sys, tempfile, unittest
 from pathlib import Path
 
 SKILL = Path(__file__).resolve().parents[1]
@@ -28,11 +28,22 @@ class PaperRecordSkillSmokeTest(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="paper-record-") as td:
             root = Path(td) / "batch"; root.mkdir(parents=True)
             source = root / "00-开始/source.md"; target = root / "03-逐篇精读/P001--2024--demo/02-深度说理报告.md"; image = root / "04-证据仓/P001--2024--demo/figures/fig.png"
-            target.parent.mkdir(parents=True); image.parent.mkdir(parents=True); target.write_text("# report\n", encoding="utf-8"); image.write_bytes(b"not-a-real-png")
+            target.parent.mkdir(parents=True); image.parent.mkdir(parents=True); target.write_text("# report\n", encoding="utf-8")
+            image.write_bytes(base64.b64decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="))
             source.parent.mkdir(parents=True); source.write_text("# nav\n[[../03-逐篇精读/P001--2024--demo/02-深度说理报告]]\n![fig](../04-证据仓/P001--2024--demo/figures/fig.png)\n", encoding="utf-8")
             result = self.run_py(RENDER, "--root", str(root), "--source", "00-开始/source.md")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn('"broken_count": 0', result.stdout)
+
+    def test_render_rejects_invalid_image_content(self):
+        with tempfile.TemporaryDirectory(prefix="paper-record-") as td:
+            root = Path(td) / "batch"; root.mkdir(parents=True)
+            source = root / "entry.md"; image = root / "broken.png"
+            image.write_bytes(b"not-a-real-png")
+            source.write_text("![broken](broken.png)\n", encoding="utf-8")
+            result = self.run_py(RENDER, "--root", str(root), "--source", "entry.md")
+            self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertIn('"broken_count": 1', result.stdout)
 
     def test_task_generator_preserves_existing_status(self):
         with tempfile.TemporaryDirectory(prefix="paper-record-") as td:

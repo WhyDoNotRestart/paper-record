@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Shared layout, metadata, and local-link helpers for Paper Record validators."""
 from __future__ import annotations
+import mimetypes
 import re
 from pathlib import Path
 from urllib.parse import unquote
@@ -40,3 +41,64 @@ def resolve_local_link(src:Path,target:str,root:Path)->Path|None:
  candidates=[base]
  if base.suffix=="": candidates += [base.with_suffix(".md"),base/"index.md"]
  return next((p.resolve() for p in candidates if p.is_file() or p.is_dir()),base.resolve())
+
+def target_type(path:Path|None, syntax:str="link") -> str:
+    """Return a stable target type used by link and rendering audits."""
+    if syntax == "image":
+        return "image"
+    if path is None:
+        return "unknown"
+    suffix = path.suffix.lower()
+    if suffix == ".pdf":
+        return "pdf"
+    if suffix in {".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".svg", ".tif", ".tiff"}:
+        return "image"
+    if suffix in {".md", ".markdown"}:
+        return "markdown"
+    if suffix in {".html", ".htm"}:
+        return "html"
+    return syntax if syntax in {"wikilink", "image"} else "file"
+
+
+def validate_media(path:Path|None) -> dict:
+    """Validate image/PDF content, not only its filesystem existence."""
+    result={"format_valid": True, "media_type": target_type(path), "width": None, "height": None, "pages": None, "reason": ""}
+    if not path or not path.is_file():
+        result.update(format_valid=False, reason="missing-file")
+        return result
+    kind=result["media_type"]
+    if kind == "image":
+        try:
+            if path.suffix.lower() == ".svg":
+                head=path.read_text(encoding="utf-8",errors="replace")[:4096].lower()
+                if "<svg" not in head:
+                    raise ValueError("missing-svg-root")
+                result["reason"]="svg-structure-ok"
+            else:
+                from PIL import Image
+                with Image.open(path) as image:
+                    image.verify()
+                with Image.open(path) as image:
+                    result["width"], result["height"] = image.size
+                if not result["width"] or not result["height"]:
+                    raise ValueError("empty-image-dimensions")
+                result["reason"]="decoded"
+        except Exception as exc:
+            result.update(format_valid=False, reason=f"image-invalid:{type(exc).__name__}:{exc}")
+    elif kind == "pdf":
+        try:
+            if path.read_bytes()[:5] != b"%PDF-":
+                raise ValueError("missing-pdf-header")
+            try:
+                import fitz
+                with fitz.open(path) as doc:
+                    result["pages"] = doc.page_count
+                    if result["pages"] < 1:
+                        raise ValueError("pdf-has-no-pages")
+            except ImportError:
+                if b"%%EOF" not in path.read_bytes()[-2048:]:
+                    raise ValueError("missing-pdf-eof")
+            result["reason"]="parsed"
+        except Exception as exc:
+            result.update(format_valid=False, reason=f"pdf-invalid:{type(exc).__name__}:{exc}")
+    return result

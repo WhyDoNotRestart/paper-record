@@ -1,0 +1,83 @@
+{
+  "schema_version": 4,
+  "source": "00-开始/entry.md",
+  "preview": "preview-after.html",
+  "renderer": "html",
+  "target_count": 4,
+  "broken_count": 1,
+  "passed": false,
+  "targets": [
+    {
+      "kind": "wikilink",
+      "target": "../03-逐篇精读/P001--2024--fixture/02-深度说理报告",
+      "target_type": "markdown",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\03-逐篇精读\\P001--2024--fixture\\02-深度说理报告.md",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": true,
+      "render_status": "passed",
+      "renderer": "html",
+      "media": {
+        "format_valid": true,
+        "reason": "file-ok"
+      }
+    },
+    {
+      "kind": "image",
+      "target": "../04-证据仓/P001--2024--fixture/figures/valid.png",
+      "target_type": "image",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\04-证据仓\\P001--2024--fixture\\figures\\valid.png",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": true,
+      "render_status": "passed",
+      "renderer": "html",
+      "media": {
+        "format_valid": true,
+        "media_type": "image",
+        "width": 32,
+        "height": 24,
+        "pages": null,
+        "reason": "decoded"
+      }
+    },
+    {
+      "kind": "image",
+      "target": "../04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "target_type": "image",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\04-证据仓\\P001--2024--fixture\\figures\\invalid.png",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": false,
+      "render_status": "failed",
+      "renderer": "html",
+      "media": {
+        "format_valid": false,
+        "media_type": "image",
+        "width": null,
+        "height": null,
+        "pages": null,
+        "reason": "image-invalid:UnidentifiedImageError:cannot identify image file 'C:\\\\Users\\\\12770\\\\.codex\\\\skills\\\\papaer-record\\\\tests\\\\fixtures\\\\phase0\\\\batch\\\\04-证据仓\\\\P001--2024--fixture\\\\figures\\\\invalid.png'"
+      }
+    },
+    {
+      "kind": "link",
+      "target": "../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "target_type": "pdf",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\04-证据仓\\P001--2024--fixture\\source\\P001--2024--fixture.pdf",
+      "exists": true,
+      "is_directory": false,
+      "format_valid": true,
+      "render_status": "passed",
+      "renderer": "html",
+      "media": {
+        "format_valid": true,
+        "media_type": "pdf",
+        "width": null,
+        "height": null,
+        "pages": 1,
+        "reason": "parsed"
+      }
+    }
+  ]
+}

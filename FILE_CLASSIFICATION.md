@@ -17,7 +17,7 @@
 | `references/topic-synthesis-protocol.md` | 主题综合规范 | 将主题文件改造成问题导向的研究图谱 | 已修改/新增 | 2026-09-14 |
 | `references/research-gap-protocol.md` | 研究机会规范 | 让研究空白和复用资产可转成实验设计 | 已修改/新增 | 2026-09-14 |
 | `references/material-usage-contract.md` | 证据与材料规范 | 确保所有佐证材料有实际用途、状态和回链 | 已修改/新增 | 2026-09-14 |
-| `references/rendering-compatibility.md` | 渲染兼容规范 | 解决Markdown/Obsidian/HTML中路径、图片和PDF不可展示问题 | 已修改/新增 | 2026-09-14 |
+| `references/rendering-compatibility.md` | 渲染兼容规范 | 规定 Markdown/Obsidian/HTML 三种验收、媒体解码和图表双入口 | 已修改 | 2026-09-15 |
 | `references/acceptance-gates.md` | 验收规范 | 定义结构、语义、证据和渲染四类完成门禁 | 已修改/新增 | 2026-09-14 |
 | `references/workflow.md` | 工作流规范 | 统一从检索到深读、综合和验收的阶段顺序 | 已修改/新增 | 2026-09-14 |
 | `references/schema.md` | 数据模式 | 定义未来批次的Paper、Evidence、Claim和矩阵实体 | 已修改/新增 | 2026-09-14 |
@@ -30,7 +30,7 @@
 | `templates/matrix-12-fields.md` | 矩阵模板 | 确保12字段逐项有判断、证据、边界和材料回链 | 已修改/新增 | 2026-09-14 |
 | `templates/figure-evidence-card.md` | 图表证据模板 | 保证每张图表/公式都有变量、条件、主张和外推边界 | 已修改/新增 | 2026-09-14 |
 | `templates/material-usage-ledger.csv` | 材料台账模板 | 提供PDF、图表、数据、代码和参考文献的实际用途字段 | 已修改/新增 | 2026-09-14 |
-| `scripts/layout.py` | 验证基础库 | 统一Paper Record 3.0目录、论文文件、frontmatter和布局识别 | 已修改/新增 | 2026-09-14 |
+| `scripts/layout.py` | 验证基础库 | 统一Paper Record 3.0目录、论文文件、frontmatter和布局识别；3.1新增媒体类型与内容校验 | 已修改 | 2026-09-15 |
 | `scripts/init_paper_record.py` | 初始化工具 | 创建不覆盖旧批次的 Paper Record 3.0 新批次 | 已修改/新增 | 2026-09-14 |
 | `scripts/validate_paper_record.py` | 验证工具 | 统一初始化与验证的目录规范并诚实检查布局、文件和链接 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_reading_task_completion.py` | 质量门禁脚本 | 检查全文任务、阶段产物、整合负责人和覆盖日志是否同步 | 已修改/新增 | 2026-09-14 |
@@ -41,14 +41,14 @@
 | `scripts/check_skill_consistency.py` | Skill自检 | 检查Skill内部规范、模板、初始化目录和脚本语法是否一致 | 已修改/新增 | 2026-09-14 |
 | `scripts/monitor_paper_record.py` | 质量监视器 | 周期记录所有技术门禁但禁止自动篡改完成状态 | 已修改/新增 | 2026-09-14 |
 | `scripts/build_reading_nav.py` | 导航生成工具 | 为新布局生成指向主报告文件的可读导航 | 已修改/新增 | 2026-09-14 |
-| `scripts/check_links.py` | 链接与渲染门禁 | 正确解析Obsidian无扩展名wikilink、Markdown、图片和目录伪链接 | 已修改 | 2026-09-14 |
+| `scripts/check_links.py` | 链接与渲染门禁 | 解析 Markdown/Obsidian/图片/PDF 链接并校验目标文件格式和媒体内容 | 已修改 | 2026-09-15 |
 | `scripts/check_filename_policy.py` | 质量门禁脚本 | 适配新布局的稳定命名、短slug和安全扩展名检查 | 已修改 | 2026-09-14 |
-| `scripts/render_markdown_preview.py` | 渲染工具 | 修复图片、Markdown和Obsidian链接的HTML预览解析 | 已修改 | 2026-09-14 |
+| `scripts/render_markdown_preview.py` | 渲染工具 | 生成 Markdown/Obsidian/HTML 预览并进行真实媒体格式与目标加载状态检查 | 已修改 | 2026-09-15 |
 | `references/independent-review-protocol.md` | 复核规范 | 定义自动门禁之后的独立语义复核抽样和签收 | 已修改/新增 | 2026-09-14 |
 | `scripts/create_reading_tasks.py` | 任务生成工具 | 让PDF核验后立即生成可追踪的全文通读任务并保留已有状态 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_genericity.py` | 质量门禁脚本 | 检测跨论文复制段落，防止用统一模板制造伪深度 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_paper_reading_depth.py` | 质量门禁脚本 | 提供兼容入口检查新布局逐篇产物和基础证据深度 | 已修改/新增 | 2026-09-14 |
-| `tests/test_skill_contract.py` | Skill测试 | 隔离验证初始化、布局验证和通读任务状态保留 | 已新增 | 2026-09-14 |
+| `tests/test_skill_contract.py` | Skill测试 | 隔离验证初始化、有效媒体渲染、无效媒体拒绝和通读任务状态保留 | 已修改 | 2026-09-15 |
 | `references/deep-reading-protocol.md` | 全文通读规范 | 清除旧版碎片文件要求，统一到Paper Record 3.0主报告结构 | 已修改 | 2026-09-14 |
 | `references/hot-paper-selection-policy.md` | 筛选规范 | 修正当前日期并明确热门度、直接性和版本治理 | 已修改 | 2026-09-14 |
 | `references/evidence-claim-model.md` | 证据模型 | 与3.0材料台账、Claim链和矩阵字段保持一致 | 已修改 | 2026-09-14 |
@@ -71,3 +71,11 @@
 | `tests/fixtures/phase0/batch/preview-before.json` | 测试产物 | 阶段 0 基线命令生成的审计/预览证据 | 已生成 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/09-质量审计/链接审计.json` | 测试产物 | 阶段 0 基线命令生成的审计/预览证据 | 已生成 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/09-质量审计/材料使用验收.json` | 测试产物 | 阶段 0 基线命令生成的审计/预览证据 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-after.html` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-after2.html` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-obsidian.html` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-report.html` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-after.json` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-after2.json` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-obsidian.json` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-report.json` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |

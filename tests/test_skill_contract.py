@@ -9,6 +9,7 @@ INIT = SKILL / "scripts/init_paper_record.py"
 VALIDATE = SKILL / "scripts/validate_paper_record.py"
 TASKS = SKILL / "scripts/create_reading_tasks.py"
 RENDER = SKILL / "scripts/render_markdown_preview.py"
+SEMANTIC = SKILL / "scripts/check_semantic_evidence.py"
 
 class PaperRecordSkillSmokeTest(unittest.TestCase):
     def run_py(self, script: Path, *args: str) -> subprocess.CompletedProcess[str]:
@@ -44,6 +45,20 @@ class PaperRecordSkillSmokeTest(unittest.TestCase):
             result = self.run_py(RENDER, "--root", str(root), "--source", "entry.md")
             self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn('"broken_count": 1', result.stdout)
+
+    def test_semantic_gate_rejects_hollow_report(self):
+        with tempfile.TemporaryDirectory(prefix="paper-record-") as td:
+            root = Path(td) / "batch"
+            paper = root / "03-逐篇精读/P001--2024--hollow"
+            paper.mkdir(parents=True)
+            (root / "layout-version.json").write_text('{"layout_version":3}\n', encoding="utf-8")
+            required = ["00-论文入口.md", "01-全文通读轨迹.md", "03-12字段证据矩阵.md", "04-图表公式证据册.md", "05-实验数据与复现.md", "06-参考文献脉络.md", "07-主张证据与边界.md"]
+            for name in required:
+                (paper / name).write_text("# placeholder\n", encoding="utf-8")
+            (paper / "02-深度说理报告.md").write_text("# P001\n\n## 理论\n采用某算法，效果较好。\n", encoding="utf-8")
+            result = self.run_py(SEMANTIC, "--root", str(root))
+            self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertIn('"passed": false', result.stdout)
 
     def test_task_generator_preserves_existing_status(self):
         with tempfile.TemporaryDirectory(prefix="paper-record-") as td:

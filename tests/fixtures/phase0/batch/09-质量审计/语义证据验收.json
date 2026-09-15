@@ -1,0 +1,45 @@
+{
+  "schema_version": 4,
+  "layout": "v3",
+  "paper_count": 1,
+  "passed": false,
+  "rows": [
+    {
+      "paper_id": "P001",
+      "report_chars": 255,
+      "unique_anchors": 2,
+      "evidence_ids": 1,
+      "original_evidence": 1,
+      "structured_restatements": 1,
+      "inferences": 1,
+      "issues": [
+        "missing:00-论文入口.md",
+        "missing:01-全文通读轨迹.md",
+        "missing:03-12字段证据矩阵.md",
+        "missing:04-图表公式证据册.md",
+        "missing:05-实验数据与复现.md",
+        "missing:06-参考文献脉络.md",
+        "missing:07-主张证据与边界.md",
+        "report-missing:从零理解问题",
+        "report-missing:研究目的与核心问题",
+        "report-missing:理论、假设与威胁模型",
+        "report-missing:作者观察与思路重建",
+        "report-missing:方法执行链",
+        "report-missing:实验、证明或评测逻辑",
+        "report-missing:图表、公式与结果证据",
+        "report-missing:从结果到结论",
+        "report-missing:局限、未报告信息与外推边界",
+        "report-missing:复现与复用",
+        "unique-anchors<8:2",
+        "evidence-ids<6:1",
+        "original-evidence<4:1",
+        "structured-restatement<2:1",
+        "missing-theory-use-failure-chain",
+        "missing-observation-to-design-chain",
+        "missing-method-state-fields",
+        "missing-experiment-fields"
+      ],
+      "passed": false
+    }
+  ]
+}

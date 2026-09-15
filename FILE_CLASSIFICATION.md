@@ -11,9 +11,9 @@
 | `agents/openai.yaml` | Skill元数据 | 更新Skill在界面中的定位和默认提示 | 已修改/新增 | 2026-09-14 |
 | `references/skill-improvement-plan-20260914.md` | Skill治理 | 记录本轮完善计划、缺陷根因和完成标准 | 已修改/新增 | 2026-09-14 |
 | `references/naming-and-folder-policy.md` | 目录与命名规范 | 定义未来批次目录、文件名和链接规则 | 已修改/新增 | 2026-09-14 |
-| `references/full-paper-reading-contract.md` | 全文通读规范 | 定义从零通读、覆盖记录、论文类型适配和签收条件 | 已修改/新增 | 2026-09-14 |
+| `references/full-paper-reading-contract.md` | 全文通读规范 | 强化全文覆盖、公式/材料核验、四遍阅读和完成签收条件 | 已修改 | 2026-09-15 |
 | `references/matrix-12-fields-contract.md` | 12字段矩阵规范 | 把矩阵从摘要表升级为逐字段证据索引 | 已修改/新增 | 2026-09-14 |
-| `references/paper-report-contract.md` | 论文报告规范 | 定义主报告结构、深度和论文特异性要求 | 已修改/新增 | 2026-09-14 |
+| `references/paper-report-contract.md` | 论文报告规范 | 强制逐篇论证链、论文特异性最低要求、证据段落和空洞表述禁用项 | 已修改 | 2026-09-15 |
 | `references/topic-synthesis-protocol.md` | 主题综合规范 | 将主题文件改造成问题导向的研究图谱 | 已修改/新增 | 2026-09-14 |
 | `references/research-gap-protocol.md` | 研究机会规范 | 让研究空白和复用资产可转成实验设计 | 已修改/新增 | 2026-09-14 |
 | `references/material-usage-contract.md` | 证据与材料规范 | 确保所有佐证材料有实际用途、状态和回链 | 已修改/新增 | 2026-09-14 |
@@ -26,7 +26,7 @@
 | `references/integration.md` | 集成规范 | 消除旧目录矛盾并明确Zotero/Obsidian同步边界 | 已修改/新增 | 2026-09-14 |
 | `templates/README.md` | 模板说明 | 说明模板与生成位置，防止占位符直接交付 | 已修改/新增 | 2026-09-14 |
 | `templates/reading-task.md` | 通读任务模板 | 提供下载后立即分配、阶段、覆盖日志和复核字段 | 已修改/新增 | 2026-09-14 |
-| `templates/paper-report.md` | 主报告模板 | 提供从零理解、作者思路、方法、实验、图表和边界的完整叙事骨架 | 已修改/新增 | 2026-09-14 |
+| `templates/paper-report.md` | 主报告模板 | 强制理论解释、作者思路因果链、方法执行链、实验变量和图表边界 | 已修改 | 2026-09-15 |
 | `templates/matrix-12-fields.md` | 矩阵模板 | 确保12字段逐项有判断、证据、边界和材料回链 | 已修改/新增 | 2026-09-14 |
 | `templates/figure-evidence-card.md` | 图表证据模板 | 保证每张图表/公式都有变量、条件、主张和外推边界 | 已修改/新增 | 2026-09-14 |
 | `templates/material-usage-ledger.csv` | 材料台账模板 | 提供PDF、图表、数据、代码和参考文献的实际用途字段 | 已修改/新增 | 2026-09-14 |
@@ -35,7 +35,7 @@
 | `scripts/validate_paper_record.py` | 验证工具 | 统一初始化与验证的目录规范并诚实检查布局、文件和链接 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_reading_task_completion.py` | 质量门禁脚本 | 检查全文任务、阶段产物、整合负责人和覆盖日志是否同步 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_matrix_field_richness.py` | 质量门禁脚本 | 按12字段逐项检查结论、依据、锚点、边界和证据材料ID | 已修改/新增 | 2026-09-14 |
-| `scripts/check_semantic_evidence.py` | 质量门禁脚本 | 检查主报告是否有完整论证链、论文特异性锚点和证据标记 | 已修改/新增 | 2026-09-14 |
+| `scripts/check_semantic_evidence.py` | 质量门禁脚本 | 检查逐篇报告的完整论证链、理论使用后果、作者思路、实验字段和证据标记 | 已修改 | 2026-09-15 |
 | `scripts/audit_material_usage.py` | 质量门禁脚本 | 审计材料是否存在、状态受控、实际被消费者和证据链使用 | 已修改/新增 | 2026-09-14 |
 | `scripts/run_quality_gates.py` | 质量门禁编排 | 将结构、任务、语义、矩阵、材料、命名和链接检查统一为一个入口 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_skill_consistency.py` | Skill自检 | 检查Skill内部规范、模板、初始化目录和脚本语法是否一致 | 已修改/新增 | 2026-09-14 |
@@ -46,9 +46,9 @@
 | `scripts/render_markdown_preview.py` | 渲染工具 | 生成 Markdown/Obsidian/HTML 预览并进行真实媒体格式与目标加载状态检查 | 已修改 | 2026-09-15 |
 | `references/independent-review-protocol.md` | 复核规范 | 定义自动门禁之后的独立语义复核抽样和签收 | 已修改/新增 | 2026-09-14 |
 | `scripts/create_reading_tasks.py` | 任务生成工具 | 让PDF核验后立即生成可追踪的全文通读任务并保留已有状态 | 已修改/新增 | 2026-09-14 |
-| `scripts/check_genericity.py` | 质量门禁脚本 | 检测跨论文复制段落，防止用统一模板制造伪深度 | 已修改/新增 | 2026-09-14 |
-| `scripts/check_paper_reading_depth.py` | 质量门禁脚本 | 提供兼容入口检查新布局逐篇产物和基础证据深度 | 已修改/新增 | 2026-09-14 |
-| `tests/test_skill_contract.py` | Skill测试 | 隔离验证初始化、有效媒体渲染、无效媒体拒绝和通读任务状态保留 | 已修改 | 2026-09-15 |
+| `scripts/check_genericity.py` | 质量门禁脚本 | 检测跨论文复制段落、占位符和空洞泛化表述，防止模板制造伪深度 | 已修改 | 2026-09-15 |
+| `scripts/check_paper_reading_depth.py` | 质量门禁脚本 | 检查逐篇报告结构、论文特异性事实、唯一锚点、理论链、方法链和实验字段 | 已修改 | 2026-09-15 |
+| `tests/test_skill_contract.py` | Skill测试 | 隔离验证初始化、有效媒体渲染、无效媒体拒绝、空洞报告拒绝和通读任务状态保留 | 已修改 | 2026-09-15 |
 | `references/deep-reading-protocol.md` | 全文通读规范 | 清除旧版碎片文件要求，统一到Paper Record 3.0主报告结构 | 已修改 | 2026-09-14 |
 | `references/hot-paper-selection-policy.md` | 筛选规范 | 修正当前日期并明确热门度、直接性和版本治理 | 已修改 | 2026-09-14 |
 | `references/evidence-claim-model.md` | 证据模型 | 与3.0材料台账、Claim链和矩阵字段保持一致 | 已修改 | 2026-09-14 |
@@ -79,3 +79,6 @@
 | `tests/fixtures/phase0/batch/preview-after2.json` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/preview-obsidian.json` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/preview-report.json` | 测试产物 | 阶段 1 多渲染器预览和媒体校验输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/09-质量审计/逐篇深度验收.json` | 测试产物 | 阶段 2 深度报告门禁失败输出，验证空洞报告会被拒绝 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/09-质量审计/模板化风险审计.json` | 测试产物 | 阶段 2 语义、模板化和逐篇深度门禁输出 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/09-质量审计/语义证据验收.json` | 测试产物 | 阶段 2 语义、模板化和逐篇深度门禁输出 | 已生成 | 2026-09-15 |

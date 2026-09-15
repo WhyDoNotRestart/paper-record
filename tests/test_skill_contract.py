@@ -11,6 +11,7 @@ TASKS = SKILL / "scripts/create_reading_tasks.py"
 RENDER = SKILL / "scripts/render_markdown_preview.py"
 SEMANTIC = SKILL / "scripts/check_semantic_evidence.py"
 MATERIAL_AUDIT = SKILL / "scripts/audit_material_usage.py"
+TOPIC_CHECK = SKILL / "scripts/check_topic_decision_value.py"
 
 class PaperRecordSkillSmokeTest(unittest.TestCase):
     def run_py(self, script: Path, *args: str) -> subprocess.CompletedProcess[str]:
@@ -77,6 +78,25 @@ class PaperRecordSkillSmokeTest(unittest.TestCase):
             result = self.run_py(MATERIAL_AUDIT, "--root", str(root))
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn('"orphan_ids": 0', result.stdout)
+
+    def test_topic_gate_rejects_tutorial_structure(self):
+        with tempfile.TemporaryDirectory(prefix="paper-record-") as td:
+            root = Path(td) / "batch"
+            topic = root / "05-主题研究图谱/T01--demo"; topic.mkdir(parents=True)
+            bodies = {
+                "00-主题入口.md": "主题边界 总研究问题 研究决策 E-P001-001 CLM-P001-001",
+                "01-问题树.md": "总研究问题 未解决 Evidence E-P001-001 CLM-P001-001",
+                "02-理论与方法谱系.md": "机制 关键假设 失败模式 E-P001-001 CLM-P001-001",
+                "03-论文关系与可比性.md": "可比 不可比 关系类型 E-P001-001 CLM-P001-001",
+                "04-证据差异与结果对照.md": "证据 指标 可信范围 E-P001-001 CLM-P001-001",
+                "05-失败模式与边界.md": "失败模式 外推边界 不能推出 E-P001-001 CLM-P001-001",
+                "06-可检验研究机会.md": "可检验研究问题 自变量 因变量 基线 成功判据 E-P001-001 CLM-P001-001",
+            }
+            for name, body in bodies.items():
+                (topic / name).write_text(body + "\n# 入门\n", encoding="utf-8")
+            result = self.run_py(TOPIC_CHECK, "--root", str(root))
+            self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertIn('"passed": false', result.stdout)
 
     def test_task_generator_preserves_existing_status(self):
         with tempfile.TemporaryDirectory(prefix="paper-record-") as td:

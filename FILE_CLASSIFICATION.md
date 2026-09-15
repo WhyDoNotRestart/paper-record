@@ -14,8 +14,8 @@
 | `references/full-paper-reading-contract.md` | 全文通读规范 | 强化全文覆盖、公式/材料核验、四遍阅读和完成签收条件 | 已修改 | 2026-09-15 |
 | `references/matrix-12-fields-contract.md` | 12字段矩阵规范 | 把矩阵从摘要表升级为逐字段证据索引 | 已修改/新增 | 2026-09-14 |
 | `references/paper-report-contract.md` | 论文报告规范 | 强制逐篇论证链、论文特异性最低要求、证据段落和空洞表述禁用项 | 已修改 | 2026-09-15 |
-| `references/topic-synthesis-protocol.md` | 主题综合规范 | 将主题文件改造成问题导向的研究图谱 | 已修改/新增 | 2026-09-14 |
-| `references/research-gap-protocol.md` | 研究机会规范 | 让研究空白和复用资产可转成实验设计 | 已修改/新增 | 2026-09-14 |
+| `references/topic-synthesis-protocol.md` | 主题综合规范 | 禁止教程化主题结构，强制问题树、机制谱系、可比性、证据差异、失败边界和研究机会 | 已修改 | 2026-09-15 |
+| `references/research-gap-protocol.md` | 研究机会规范 | 强制从证据差异和可比性推导可证伪问题、变量、基线、指标和失败判据 | 已修改 | 2026-09-15 |
 | `references/material-usage-contract.md` | 证据与材料规范 | 强制 Material→Evidence→Claim→Report/Topic 双向回链、occurrence 和受控未使用状态 | 已修改 | 2026-09-15 |
 | `references/rendering-compatibility.md` | 渲染兼容规范 | 规定 Markdown/Obsidian/HTML 三种验收、媒体解码和图表双入口 | 已修改 | 2026-09-15 |
 | `references/acceptance-gates.md` | 验收规范 | 定义结构、语义、证据和渲染四类完成门禁 | 已修改/新增 | 2026-09-14 |
@@ -31,7 +31,7 @@
 | `templates/figure-evidence-card.md` | 图表证据模板 | 增加报告/主题消费者、材料状态、格式核验和渲染状态 | 已修改 | 2026-09-15 |
 | `templates/material-usage-ledger.csv` | 材料台账模板 | 增加报告/主题段落、occurrence、渲染状态和用途闭环字段 | 已修改 | 2026-09-15 |
 | `scripts/layout.py` | 验证基础库 | 统一Paper Record 3.0目录、论文文件、frontmatter和布局识别；3.1新增媒体类型与内容校验 | 已修改 | 2026-09-15 |
-| `scripts/init_paper_record.py` | 初始化工具 | 创建不覆盖旧批次的 Paper Record 3.0 新批次 | 已修改/新增 | 2026-09-14 |
+| `scripts/init_paper_record.py` | 初始化工具 | 创建 v3 批次并生成研究决策型主题/跨论文入口，禁止教程化结构 | 已修改 | 2026-09-15 |
 | `scripts/validate_paper_record.py` | 验证工具 | 统一初始化与验证的目录规范并诚实检查布局、文件和链接 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_reading_task_completion.py` | 质量门禁脚本 | 检查全文任务、阶段产物、整合负责人和覆盖日志是否同步 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_matrix_field_richness.py` | 质量门禁脚本 | 按12字段逐项检查结论、依据、锚点、边界和证据材料ID | 已修改/新增 | 2026-09-14 |
@@ -48,7 +48,7 @@
 | `scripts/create_reading_tasks.py` | 任务生成工具 | 让PDF核验后立即生成可追踪的全文通读任务并保留已有状态 | 已修改/新增 | 2026-09-14 |
 | `scripts/check_genericity.py` | 质量门禁脚本 | 检测跨论文复制段落、占位符和空洞泛化表述，防止模板制造伪深度 | 已修改 | 2026-09-15 |
 | `scripts/check_paper_reading_depth.py` | 质量门禁脚本 | 检查逐篇报告结构、论文特异性事实、唯一锚点、理论链、方法链和实验字段 | 已修改 | 2026-09-15 |
-| `tests/test_skill_contract.py` | Skill测试 | 隔离验证初始化、媒体渲染、空洞报告拒绝、材料闭环和通读任务状态保留 | 已修改 | 2026-09-15 |
+| `tests/test_skill_contract.py` | Skill测试 | 隔离验证初始化、媒体渲染、空洞报告拒绝、材料闭环、主题教程化拒绝和通读任务状态保留 | 已修改 | 2026-09-15 |
 | `references/deep-reading-protocol.md` | 全文通读规范 | 清除旧版碎片文件要求，统一到Paper Record 3.0主报告结构 | 已修改 | 2026-09-14 |
 | `references/hot-paper-selection-policy.md` | 筛选规范 | 修正当前日期并明确热门度、直接性和版本治理 | 已修改 | 2026-09-14 |
 | `references/evidence-claim-model.md` | 证据模型 | 与3.0材料台账、Claim链和矩阵字段保持一致 | 已修改 | 2026-09-14 |
@@ -84,3 +84,12 @@
 | `tests/fixtures/phase0/batch/09-质量审计/语义证据验收.json` | 测试产物 | 阶段 2 语义、模板化和逐篇深度门禁输出 | 已生成 | 2026-09-15 |
 | `scripts/check_material_traceability.py` | 质量门禁脚本 | 提供材料双向追踪审计的明确入口，兼容总门禁编排 | 已创建 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/09-质量审计/材料使用审计.csv` | 测试夹具 | 阶段 3 材料使用台账，覆盖核心材料、context-only和unavailable | 已更新（修正 CSV 字段对齐） | 2026-09-15 |
+| `templates/topic-research-package/00-topic-entry.md` | 主题研究模板 | Paper Record 3.1 研究决策型主题包模板 | 已创建 | 2026-09-15 |
+| `templates/topic-research-package/01-problem-tree.md` | 主题研究模板 | Paper Record 3.1 研究决策型主题包模板 | 已创建 | 2026-09-15 |
+| `templates/topic-research-package/02-theory-method-lineage.md` | 主题研究模板 | Paper Record 3.1 研究决策型主题包模板 | 已创建 | 2026-09-15 |
+| `templates/topic-research-package/03-paper-relations-comparability.md` | 主题研究模板 | Paper Record 3.1 研究决策型主题包模板 | 已创建 | 2026-09-15 |
+| `templates/topic-research-package/04-evidence-differences.md` | 主题研究模板 | Paper Record 3.1 研究决策型主题包模板 | 已创建 | 2026-09-15 |
+| `templates/topic-research-package/05-failure-boundaries.md` | 主题研究模板 | Paper Record 3.1 研究决策型主题包模板 | 已创建 | 2026-09-15 |
+| `templates/topic-research-package/06-testable-opportunities.md` | 主题研究模板 | Paper Record 3.1 研究决策型主题包模板 | 已创建 | 2026-09-15 |
+| `scripts/check_topic_decision_value.py` | 质量门禁脚本 | 检查主题包的问题树、机制谱系、可比性、证据差异、失败边界和研究机会 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/09-质量审计/主题研究决策验收.json` | 测试产物 | 阶段 4 主题研究决策价值门禁输出 | 已生成 | 2026-09-15 |

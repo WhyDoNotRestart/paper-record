@@ -1,0 +1,34 @@
+{
+  "schema_version": 3,
+  "source": "00-开始/entry.md",
+  "preview": "preview-before.html",
+  "target_count": 4,
+  "broken_count": 0,
+  "passed": true,
+  "targets": [
+    {
+      "kind": "wikilink",
+      "target": "../03-逐篇精读/P001--2024--fixture/02-深度说理报告",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\03-逐篇精读\\P001--2024--fixture\\02-深度说理报告.md",
+      "exists": true
+    },
+    {
+      "kind": "image",
+      "target": "../04-证据仓/P001--2024--fixture/figures/valid.png",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\04-证据仓\\P001--2024--fixture\\figures\\valid.png",
+      "exists": true
+    },
+    {
+      "kind": "image",
+      "target": "../04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\04-证据仓\\P001--2024--fixture\\figures\\invalid.png",
+      "exists": true
+    },
+    {
+      "kind": "link",
+      "target": "../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "resolved": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\04-证据仓\\P001--2024--fixture\\source\\P001--2024--fixture.pdf",
+      "exists": true
+    }
+  ]
+}

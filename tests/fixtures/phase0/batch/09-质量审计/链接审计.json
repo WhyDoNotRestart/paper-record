@@ -1,0 +1,56 @@
+{
+  "root": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch",
+  "link_count": 6,
+  "broken": [],
+  "directory_targets": [],
+  "rows": [
+    {
+      "source": "00-开始/entry.md",
+      "syntax": "wikilink",
+      "target": "../03-逐篇精读/P001--2024--fixture/02-深度说理报告",
+      "resolved": "03-逐篇精读/P001--2024--fixture/02-深度说理报告.md",
+      "exists": true,
+      "is_directory": false
+    },
+    {
+      "source": "00-开始/entry.md",
+      "syntax": "markdown",
+      "target": "../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "resolved": "04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "exists": true,
+      "is_directory": false
+    },
+    {
+      "source": "00-开始/entry.md",
+      "syntax": "image",
+      "target": "../04-证据仓/P001--2024--fixture/figures/valid.png",
+      "resolved": "04-证据仓/P001--2024--fixture/figures/valid.png",
+      "exists": true,
+      "is_directory": false
+    },
+    {
+      "source": "00-开始/entry.md",
+      "syntax": "image",
+      "target": "../04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "resolved": "04-证据仓/P001--2024--fixture/figures/invalid.png",
+      "exists": true,
+      "is_directory": false
+    },
+    {
+      "source": "03-逐篇精读/P001--2024--fixture/02-深度说理报告.md",
+      "syntax": "markdown",
+      "target": "../../04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "resolved": "04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf",
+      "exists": true,
+      "is_directory": false
+    },
+    {
+      "source": "03-逐篇精读/P001--2024--fixture/02-深度说理报告.md",
+      "syntax": "image",
+      "target": "../../04-证据仓/P001--2024--fixture/figures/valid.png",
+      "resolved": "04-证据仓/P001--2024--fixture/figures/valid.png",
+      "exists": true,
+      "is_directory": false
+    }
+  ]
+}

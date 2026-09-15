@@ -52,3 +52,22 @@
 | `references/deep-reading-protocol.md` | 全文通读规范 | 清除旧版碎片文件要求，统一到Paper Record 3.0主报告结构 | 已修改 | 2026-09-14 |
 | `references/hot-paper-selection-policy.md` | 筛选规范 | 修正当前日期并明确热门度、直接性和版本治理 | 已修改 | 2026-09-14 |
 | `references/evidence-claim-model.md` | 证据模型 | 与3.0材料台账、Claim链和矩阵字段保持一致 | 已修改 | 2026-09-14 |
+| `references/skill-improvement-plan-20260915.md` | Skill治理 | Paper Record 3.1 分阶段优化计划与完成标准 | 已创建 | 2026-09-15 |
+| `references/optimization-log-20260915.md` | Skill治理 | 逐阶段优化目标、门禁、commit、push和精简报告记录 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/README.md` | 测试夹具 | 阶段 0 隔离回放说明 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/layout-version.json` | 测试夹具 | 隔离批次布局版本 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/00-开始/entry.md` | 测试夹具 | 复现 Markdown、Obsidian、图片和 PDF 链接问题 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/03-逐篇精读/P001--2024--fixture/02-深度说理报告.md` | 测试夹具 | 提供真实渲染和证据链最小样例 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/04-证据仓/P001--2024--fixture/data/data.csv` | 测试夹具 | 材料使用审计的数据样例 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/04-证据仓/P001--2024--fixture/code/README.md` | 测试夹具 | 材料使用审计的代码样例 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/04-证据仓/P001--2024--fixture/references/reference-usage.md` | 测试夹具 | 材料使用审计的参考文献 occurrence 样例 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/04-证据仓/P001--2024--fixture/材料状态样例.md` | 测试夹具 | 材料状态和受控缺失样例 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/04-证据仓/P001--2024--fixture/figures/valid.png` | 测试夹具 | 阶段 0 有效/无效媒体回放资产 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/04-证据仓/P001--2024--fixture/figures/invalid.png` | 测试夹具 | 阶段 0 有效/无效媒体回放资产 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf` | 测试夹具 | 阶段 0 有效/无效媒体回放资产 | 已创建 | 2026-09-15 |
+| `references/peer-benchmark-20260915.md` | 生态访行 | 记录五类同类工具/工作流的公开来源与可借鉴设计点 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/baseline-observations.md` | 测试证据 | 记录阶段 0 三类基线失败及命令输出 | 已创建 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-before.html` | 测试产物 | 阶段 0 基线命令生成的审计/预览证据 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/preview-before.json` | 测试产物 | 阶段 0 基线命令生成的审计/预览证据 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/09-质量审计/链接审计.json` | 测试产物 | 阶段 0 基线命令生成的审计/预览证据 | 已生成 | 2026-09-15 |
+| `tests/fixtures/phase0/batch/09-质量审计/材料使用验收.json` | 测试产物 | 阶段 0 基线命令生成的审计/预览证据 | 已生成 | 2026-09-15 |

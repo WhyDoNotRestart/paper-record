@@ -12,7 +12,7 @@ def sha256(p):
   for chunk in iter(lambda:f.read(1024*1024),b""): h.update(chunk)
  return h.hexdigest()
 def main():
- ap=argparse.ArgumentParser(); ap.add_argument("--root",required=True); ap.add_argument("--version",default="1"); ap.add_argument("--assigned-to",default="待分配"); ap.add_argument("--integrator",default="待分配"); args=ap.parse_args(); root=Path(args.root).resolve(); layout=detect_layout(root)
+ ap=argparse.ArgumentParser(); ap.add_argument("--root",required=True); ap.add_argument("--version",default="1"); ap.add_argument("--assigned-to",default="待分配"); ap.add_argument("--integrator",default="待分配"); ap.add_argument("--independent-reviewer",default="待分配"); args=ap.parse_args(); root=Path(args.root).resolve(); layout=detect_layout(root)
  if layout!="v3": raise SystemExit("create_reading_tasks.py只为layout v3新批次服务；旧批次不原地迁移")
  td=root/"09-质量审计/reading-tasks"; td.mkdir(parents=True,exist_ok=True); rows=[]
  for d in paper_dirs(root,"v3"):
@@ -64,6 +64,6 @@ created_at: {date.today().isoformat()}
 - 数据/代码：
 - 关键参考文献：
 """
-  task.write_text(body,encoding="utf-8"); rows.append({"task_id":f"READ-{pid}-v{args.version}","paper_id":pid,"source_pdf":source,"pdf_sha256":digest,"assigned_to":args.assigned_to,"integrator":args.integrator,"status":old_status})
- queue=root/"09-质量审计/全文通读任务队列.csv"; lines=["task_id,paper_id,source_pdf,pdf_sha256,assigned_to,integrator,status"]+[",".join(str(r[k]).replace(","," ") for k in ["task_id","paper_id","source_pdf","pdf_sha256","assigned_to","integrator","status"]) for r in rows]; queue.write_text("\ufeff"+"\n".join(lines)+"\n",encoding="utf-8-sig"); print(json.dumps({"layout":layout,"paper_count":len(rows),"queue":str(queue)},ensure_ascii=False)); return 0
+  task.write_text(body,encoding="utf-8"); rows.append({"task_id":f"READ-{pid}-v{args.version}","paper_id":pid,"source_pdf":source,"pdf_sha256":digest,"assigned_to":args.assigned_to,"integrator":args.integrator,"independent_reviewer":args.independent_reviewer,"status":old_status})
+ queue=root/"09-质量审计/全文通读任务队列.csv"; lines=["task_id,paper_id,source_pdf,pdf_sha256,assigned_to,integrator,independent_reviewer,status"]+[",".join(str(r[k]).replace(","," ") for k in ["task_id","paper_id","source_pdf","pdf_sha256","assigned_to","integrator","independent_reviewer","status"]) for r in rows]; queue.write_text("\ufeff"+"\n".join(lines)+"\n",encoding="utf-8-sig"); print(json.dumps({"layout":layout,"paper_count":len(rows),"queue":str(queue)},ensure_ascii=False)); return 0
 if __name__=="__main__": raise SystemExit(main())

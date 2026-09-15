@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Isolated smoke tests for Paper Record 3.0 skill contracts."""
 from __future__ import annotations
-import base64, json, subprocess, sys, tempfile, unittest
+import base64, json, shutil, subprocess, sys, tempfile, unittest
 from pathlib import Path
 
 SKILL = Path(__file__).resolve().parents[1]
@@ -12,6 +12,7 @@ RENDER = SKILL / "scripts/render_markdown_preview.py"
 SEMANTIC = SKILL / "scripts/check_semantic_evidence.py"
 MATERIAL_AUDIT = SKILL / "scripts/audit_material_usage.py"
 TOPIC_CHECK = SKILL / "scripts/check_topic_decision_value.py"
+QUALITY_GATES = SKILL / "scripts/run_quality_gates.py"
 
 class PaperRecordSkillSmokeTest(unittest.TestCase):
     def run_py(self, script: Path, *args: str) -> subprocess.CompletedProcess[str]:
@@ -97,6 +98,17 @@ class PaperRecordSkillSmokeTest(unittest.TestCase):
             result = self.run_py(TOPIC_CHECK, "--root", str(root))
             self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn('"passed": false', result.stdout)
+
+    def test_integrated_fixture_passes_all_quality_gates(self):
+        fixture = SKILL / "tests/fixtures/phase5-valid/batch"
+        with tempfile.TemporaryDirectory(prefix="paper-record-integrated-") as td:
+            root = Path(td) / "batch"
+            shutil.copytree(fixture, root)
+            result = self.run_py(QUALITY_GATES, "--root", str(root), "--skill-root", str(SKILL))
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            audit = json.loads((root / "09-质量审计/总门禁结果.json").read_text(encoding="utf-8"))
+            self.assertTrue(audit["passed"])
+            self.assertTrue(all(check["passed"] for check in audit["checks"]))
 
     def test_task_generator_preserves_existing_status(self):
         with tempfile.TemporaryDirectory(prefix="paper-record-") as td:

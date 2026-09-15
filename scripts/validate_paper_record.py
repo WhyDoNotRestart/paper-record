@@ -3,20 +3,27 @@
 from __future__ import annotations
 import argparse, json, re
 from pathlib import Path
-from layout import V3_DIRS, V3_PAPER_FILES, V3_STARTERS, detect_layout, paper_dirs, paper_id, rel, frontmatter
+from layout import V3_DIRS, V3_PAPER_FILES, V3_STARTERS, detect_layout, paper_dirs, paper_id, rel, frontmatter, resolve_local_link, target_type, validate_media
 
 LINK_RE = re.compile(r'!?\[[^\]]*\]\(([^)]+)\)|!?\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|[^]]+)?\]\]')
+GENERATED_AUDIT_FILES = {
+    "结构验收.json", "通读任务验收.json", "语义证据验收.json",
+    "矩阵字段验收.json", "材料使用验收.json", "主题研究决策验收.json",
+    "链接审计.json", "总门禁结果.json",
+}
 
 def check_links(root: Path) -> list[dict]:
     bad=[]
     for src in root.rglob("*"):
         if not src.is_file() or src.suffix.lower() not in {".md", ".html"} or "99-原始归档" in src.parts: continue
-        text=src.read_text(encoding="utf-8",errors="replace")
+        text=src.read_text(encoding="utf-8-sig",errors="replace")
         for match in LINK_RE.finditer(text):
             target=(match.group(1) or match.group(2) or "").strip().strip("<>").split("#",1)[0]
             if not target or target.startswith(("http://","https://","mailto:","data:","zotero:")): continue
-            p=(src.parent / target).resolve() if not (target.startswith("/") or (len(target)>2 and target[1]==":")) else Path(target)
-            if not p.is_file(): bad.append({"source":rel(src,root),"target":target,"resolved":str(p)})
+            p=resolve_local_link(src,target,root); kind=target_type(p,"image" if match.group(0).startswith("!") else "link")
+            media=validate_media(p) if kind in {"image","pdf"} else {"format_valid":bool(p and p.is_file() and not p.is_dir())}
+            if not p or not p.is_file() or p.is_dir() or not media.get("format_valid"):
+                bad.append({"source":rel(src,root),"target":target,"resolved":rel(p,root) if p and p.is_relative_to(root) else str(p) if p else "","target_type":kind,"format_valid":bool(media.get("format_valid")),"media":media})
     return bad
 
 def main() -> int:
@@ -39,7 +46,13 @@ def main() -> int:
         if ledger.exists():
             lt=ledger.read_text(encoding="utf-8",errors="replace")
             for p in root.rglob("*"):
-                if p.is_file() and p.name not in {"文件分类清单.md"} and "99-原始归档" not in p.parts and "__pycache__" not in p.parts:
+                if (
+                    p.is_file()
+                    and p.name not in {"文件分类清单.md", *GENERATED_AUDIT_FILES}
+                    and not (p.parent == root / "09-质量审计" and p.suffix.lower() == ".json")
+                    and "99-原始归档" not in p.parts
+                    and "__pycache__" not in p.parts
+                ):
                     if f"`{rel(p,root)}`" not in lt: errors.append(f"unclassified:{rel(p,root)}")
         state=root/"09-质量审计/批次状态.json"
         if state.exists():

@@ -8,8 +8,8 @@ from layout import detect_layout,paper_dirs,paper_id,strip_frontmatter
 REQUIRED=["00-论文入口.md","01-全文通读轨迹.md","02-深度说理报告.md","03-12字段证据矩阵.md","04-图表公式证据册.md","05-实验数据与复现.md","06-参考文献脉络.md","07-主张证据与边界.md"]
 MARKERS=["从零理解问题","研究目的与核心问题","理论、假设与威胁模型","作者观察与思路重建","方法执行链","实验、证明或评测逻辑","图表、公式与结果证据","从结果到结论","局限、未报告信息与外推边界","复现与复用","原文证据","结构化转述","本次综合推论"]
 BANNED=["采用某算法，效果较好","具有理论、方法和实践意义","见论文","详见实验部分","输入/模型/工具/指标/结论"]
-ANCHOR=re.compile(r"PDF\s*(?:p\.?|page)\s*\d+|第\s*\d+\s*页|Sec\.?\s*[\w.-]+|(?:Figure|Fig\.?|Table|Eq\.?)\s*\d+|(?:图|表|公式)\s*\d+",re.I)
-ID_RE=re.compile(r"\b(?:CLM|Claim|E|Evidence|MAT|Material)[-_][A-Za-z0-9]+\b",re.I)
+ANCHOR=re.compile(r"PDF\s*(?:p\.?|page)\s*\d+|第\s*\d+\s*页|Sec\.?\s*[\w.-]+|(?:Figure|Fig\.?|Table|Eq\.?)\s*\(?\d+\)?|(?:图|表|公式)\s*\d+",re.I)
+ID_RE=re.compile(r"\b(?:CLM|Claim|E|Evidence|MAT|Material)(?:[-_][A-Za-z0-9]+)+\b",re.I)
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--root",required=True); ap.add_argument("--out"); args=ap.parse_args(); root=Path(args.root).resolve(); layout=detect_layout(root); rows=[]

@@ -1,0 +1,2 @@
+material_id,material_path,kind,source_version,sha256,usage_status,actual_consumer,evidence_ids,claim_ids,matrix_field_ids,notes
+MAT-P001-PDF,04-证据仓/P001--2024--short-slug/source/P001--2024--short-slug.pdf,pdf,v1,,core-argument,03-逐篇精读/P001--2024--short-slug/02-深度说理报告.md,E-P001-001,CLM-P001-001,F02;F06,

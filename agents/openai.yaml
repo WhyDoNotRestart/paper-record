@@ -1,0 +1,7 @@
+interface:
+  display_name: "Paper Record · 全文论文证据知识库"
+  short_description: "全文通读、深度说理、证据矩阵与研究机会"
+  default_prompt: "使用 $papaer-record 按 Paper Record 3.0：下载后立即分配通读任务，逐篇从零解释论文，先写深度说理报告，再回填12字段证据矩阵，并完成材料使用、链接、渲染和独立复核。"
+
+policy:
+  allow_implicit_invocation: true

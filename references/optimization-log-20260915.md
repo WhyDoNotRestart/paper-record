@@ -13,8 +13,8 @@
 | 2 | 逐篇深度报告与语义门禁 | passed | pending | pending | 已拒绝空洞/占位/缺少论证链的报告 |
 | 3 | Material→Evidence→Claim 闭环 | passed | pending | pending | 6类材料 fixture 已通过双向追踪审计 |
 | 4 | 主题图谱与跨论文研究决策 | passed | pending | pending | 已加入决策型协议、主题模板和教程化拒绝门禁 |
-| 5 | 总门禁、真实回放、独立复核 | passed | pending | pending | 完整 v3 单论文回放全绿；独立复核门禁和 3 种 renderer 已接入 |
-| 6 | 回炉、文档和最终验收 | queued | - | - | - |
+| 5 | 总门禁、真实回放、独立复核 | passed | `da9c6d9` | pushed | 完整 v3 单论文回放全绿；独立复核门禁和 3 种 renderer 已接入 |
+| 6 | 回炉、文档和最终验收 | in-progress | - | - | 已更新 SKILL、README 和最终打磨报告，等待最终总门禁 |
 
 ## 阶段报告记录\n\n### 阶段 1\n\n- 目标：让链接审计和预览检查文件格式、媒体内容和渲染状态。\n- 已完成：统一目标类型与媒体校验；新增图片/PDF真实性检查；渲染器支持 markdown/obsidian/html；测试改用有效 PNG并增加无效图片拒绝用例。\n- 验证：4项单元测试通过；有效报告 HTML 预览通过；包含无效图片的批次被 `check_links.py` 和渲染器拒绝。浏览器自动化环境不可用，未进行 GUI 浏览器实测。\n- 未解决：需要在后续阶段增加真实浏览器/独立HTML加载检查与材料闭环。\n- Git：阶段 1 commit 待提交。\n- 下一步：重建逐篇深度报告与语义门禁。
 

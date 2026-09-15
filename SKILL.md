@@ -4,7 +4,7 @@ description: >
   按命令 papaer-record（兼容 paper-record）把 Zotero 论文集合加工成全文证据驱动、逐篇通读、论证可解释、材料可回溯的研究知识库。适用于近年热门论文筛选、AI/LLM×密码学文献精读、12字段证据矩阵、图表/数据/参考文献审计、主题研究图谱、研究机会和可复现资产生成。不得用摘要或统一模板冒充全文精读。
 ---
 
-# Paper Record 3.0
+# Paper Record 3.1
 
 ## 一、定位
 
@@ -20,7 +20,7 @@ description: >
 
 ## 二、触发后先做的事
 
-1. 读取本 Skill 的 `references/skill-improvement-plan-20260914.md`、`workflow.md`、`naming-and-folder-policy.md`。
+1. 读取本 Skill 的 `references/skill-improvement-plan-20260915.md`、`workflow.md`、`naming-and-folder-policy.md`、`references/acceptance-gates.md`。
 2. 明确主题、时间窗口、纳入/排除标准、Zotero集合、写入范围和是否允许联网/下载。
 3. 新建批次时使用 **layout_version: 3**；旧批次只读，不原地迁移。
 4. 论文一旦完成版本核验和全文获取，立即创建逐篇通读任务；不能先批量写摘要或矩阵。
@@ -39,12 +39,12 @@ description: >
 → 12字段证据矩阵
 → 主题/跨论文综合
 → 研究机会与复用资产
-→ 链接、渲染、语义和独立复核
+→ 结构、全文覆盖、报告逻辑、证据使用、实际渲染和独立复核
 ```
 
 每篇论文使用 `references/full-paper-reading-contract.md` 和 `templates/` 下模板。主报告必须是该论文的特异性解释，不得拆成许多只有几百字的“章节占位符”。
 
-## 四、Paper Record 3.0 输出结构
+## 四、Paper Record 3.1 输出结构
 
 ```text
 00-开始/
@@ -120,7 +120,7 @@ PDF、全文、图表、表格、公式、数据、代码、补充材料和参�
 Material → Evidence → Claim → Matrix field → Note/Report
 ```
 
-只保存路径不算使用。所有入口只能链接到真实文件，不能链接目录；图片要同时有可显示图片和文字证据卡；所有相对路径要以源文件为基准解析并实测。
+只保存路径不算使用。所有入口只能链接到真实文件，不能链接目录；图片要同时有可显示图片和文字证据卡；PDF、图片和 HTML 入口必须通过真实格式校验；所有相对路径要以源文件为基准解析并实测。材料还必须记录实际消费者、Evidence/Claim、矩阵字段和报告/主题段落；登记路径不等于使用。
 
 ## 九、门禁与状态
 
@@ -131,7 +131,7 @@ python scripts/validate_paper_record.py --root <batch>
 python scripts/run_quality_gates.py --root <batch>
 ```
 
-四类门禁必须全部通过：结构、全文语义、证据使用、实际渲染。任何失败都保持 `needs-optimization`。自动检查只能证明合同和路径，不能替代密码学语义复核；`completed`必须由整合负责人和独立复核者显式签收。
+六类门禁必须全部通过：结构、全文覆盖、报告逻辑、证据使用、实际渲染、独立复核。运行 `python scripts/run_quality_gates.py --root <batch> --skill-root .` 进行统一验收。任何失败都保持 `needs-optimization`；自动检查只能证明合同、路径、格式和部分关系，不能替代学术语义复核；`completed`必须由整合负责人和独立复核者显式签收。
 
 ## 十、默认不做的事
 
@@ -148,5 +148,7 @@ python scripts/run_quality_gates.py --root <batch>
 - `papaer-record 重建主题`：从已完成逐篇报告重建研究图谱；
 - `papaer-record 审计证据`：检查材料实际用途；
 - `papaer-record 修复链接`：生成链接和渲染审计；
-- `papaer-record 验收`：运行总门禁；
-- `papaer-record 重跑第X阶段`：创建新批次，不覆盖旧批次。
+- `papaer-record 验收`：运行六类总门禁，并生成结构、全文、逻辑、证据、渲染和独立复核审计；
+- `papaer-record 重跑第X阶段`：创建新 revision/新批次，不覆盖旧批次。
+
+阶段优化记录见 `references/optimization-log-20260915.md`；独立复核协议见 `references/independent-review-protocol.md`，复核报告放在批次 `09-质量审计/independent-reviews/`。

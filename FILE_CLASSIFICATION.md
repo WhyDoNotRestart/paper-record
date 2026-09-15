@@ -6,8 +6,8 @@
 |---|---|---|---|---|
 | `FILE_CLASSIFICATION.md` | Skill治理 | Skill内部文件分类与变更追踪 | 已创建并自登记 | 2026-09-14 |
 | `baseline-20260914-pre-v3.zip` | 基线与回滚 | Paper Record 3.0 修改前的 Skill 完整快照 | 已冻结 | 2026-09-14 |
-| `SKILL.md` | Skill核心说明 | Paper Record 3.0 主入口与执行纪律 | 已修改/新增 | 2026-09-14 |
-| `README.md` | Skill说明与传播 | 供安装者快速理解能力、触发方式和输出 | 已修改/新增 | 2026-09-14 |
+| `SKILL.md` | Skill说明 | Paper Record 3.1 主 Skill 说明、六类门禁、材料闭环、独立复核和阶段化回炉入口 | 已修改 | 2026-09-15 |
+| `README.md` | 项目说明 | Paper Record 3.1 使用说明、六类门禁和统一验收命令 | 已修改 | 2026-09-15 |
 | `agents/openai.yaml` | Skill元数据 | 更新Skill在界面中的定位和默认提示 | 已修改/新增 | 2026-09-14 |
 | `references/skill-improvement-plan-20260914.md` | Skill治理 | 记录本轮完善计划、缺陷根因和完成标准 | 已修改/新增 | 2026-09-14 |
 | `references/naming-and-folder-policy.md` | 目录与命名规范 | 定义未来批次目录、文件名和链接规则 | 已修改/新增 | 2026-09-14 |
@@ -53,7 +53,7 @@
 | `references/hot-paper-selection-policy.md` | 筛选规范 | 修正当前日期并明确热门度、直接性和版本治理 | 已修改 | 2026-09-14 |
 | `references/evidence-claim-model.md` | 证据模型 | 与3.0材料台账、Claim链和矩阵字段保持一致 | 已修改 | 2026-09-14 |
 | `references/skill-improvement-plan-20260915.md` | Skill治理 | Paper Record 3.1 分阶段优化计划与完成标准 | 已创建 | 2026-09-15 |
-| `references/optimization-log-20260915.md` | Skill治理 | 逐阶段优化目标、门禁、commit、push和精简报告记录；补充阶段 5 全绿回放与独立复核结果 | 已修改 | 2026-09-15 |
+| `references/optimization-log-20260915.md` | Skill治理 | 逐阶段优化目标、门禁、commit、push和精简报告记录；补充阶段 5 提交和阶段 6 最终验收状态 | 已修改 | 2026-09-15 |
 | `tests/fixtures/phase0/README.md` | 测试夹具 | 阶段 0 隔离回放说明 | 已创建 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/layout-version.json` | 测试夹具 | 隔离批次布局版本 | 已创建 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/00-开始/entry.md` | 测试夹具 | 复现 Markdown、Obsidian、图片和 PDF 链接问题 | 已创建 | 2026-09-15 |
@@ -146,3 +146,4 @@
 | `tests/fixtures/phase5-valid/batch/09-质量审计/文件分类清单.md` | 质量审计 | 完整回放 fixture 的文件分类清单 | 已修改 | 2026-09-15 |
 | `tests/fixtures/phase5-valid/batch/09-质量审计/reading-tasks/READ-P001-v1.md` | 全文通读审计 | P001 完整通读任务和独立复核分工 | 已创建 | 2026-09-15 |
 | `tests/fixtures/phase5-valid/batch/09-质量审计/independent-reviews/REVIEW-P001-v1.md` | 独立复核 | P001 基于原始材料的第二遍抽查签收 | 已创建 | 2026-09-15 |
+| `references/paper-record-3.1-optimization-report-20260915.md` | Skill治理 | 最终 Paper Record 3.1 打磨前后差距、阶段 commit、回放证据、边界和下一轮观察点 | 已创建 | 2026-09-15 |

@@ -10,6 +10,7 @@ VALIDATE = SKILL / "scripts/validate_paper_record.py"
 TASKS = SKILL / "scripts/create_reading_tasks.py"
 RENDER = SKILL / "scripts/render_markdown_preview.py"
 SEMANTIC = SKILL / "scripts/check_semantic_evidence.py"
+MATERIAL_AUDIT = SKILL / "scripts/audit_material_usage.py"
 
 class PaperRecordSkillSmokeTest(unittest.TestCase):
     def run_py(self, script: Path, *args: str) -> subprocess.CompletedProcess[str]:
@@ -59,6 +60,23 @@ class PaperRecordSkillSmokeTest(unittest.TestCase):
             result = self.run_py(SEMANTIC, "--root", str(root))
             self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn('"passed": false', result.stdout)
+
+    def test_material_audit_accepts_used_and_controlled_unavailable_materials(self):
+        with tempfile.TemporaryDirectory(prefix="paper-record-") as td:
+            root = Path(td) / "batch"
+            report = root / "03-逐篇精读/P001--2024--material/02-深度说理报告.md"
+            report.parent.mkdir(parents=True)
+            report.write_text("E-P001-001 CLM-P001-001 MAT-P001-PDF\n", encoding="utf-8")
+            source = root / "04-证据仓/P001--2024--material/source.txt"
+            source.parent.mkdir(parents=True); source.write_text("fixture\n", encoding="utf-8")
+            ledger = root / "09-质量审计/材料使用审计.csv"
+            ledger.parent.mkdir(parents=True)
+            ledger.write_text("material_id,material_path,kind,source_version,sha256,usage_status,actual_consumer,evidence_ids,claim_ids,matrix_field_ids,reference_role,report_sections,topic_sections,occurrence_locators,render_status,notes\n" +
+                "MAT-P001-PDF,04-证据仓/P001--2024--material/source.txt,pdf,v1,,core-argument,03-逐篇精读/P001--2024--material/02-深度说理报告.md,E-P001-001,CLM-P001-001,F02,,2,,,passed,\n" +
+                "MAT-P001-SI,04-证据仓/P001--2024--material/missing-si.pdf,supplementary,v1,,unavailable,,,,,,,,,not-applicable,not obtained\n", encoding="utf-8")
+            result = self.run_py(MATERIAL_AUDIT, "--root", str(root))
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertIn('"orphan_ids": 0', result.stdout)
 
     def test_task_generator_preserves_existing_status(self):
         with tempfile.TemporaryDirectory(prefix="paper-record-") as td:

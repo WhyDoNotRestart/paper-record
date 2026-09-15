@@ -11,7 +11,7 @@
 | 0 | 验料、基线、隔离 fixture 与访行 | passed | pending | pending | 已复现三类基线失败，待提交 |
 | 1 | 图表、PDF、引用路径真实展示 | passed | pending | pending | 已拒绝无效 PNG，三种 renderer 均已回放 |
 | 2 | 逐篇深度报告与语义门禁 | passed | pending | pending | 已拒绝空洞/占位/缺少论证链的报告 |
-| 3 | Material→Evidence→Claim 闭环 | queued | - | - | - |
+| 3 | Material→Evidence→Claim 闭环 | passed | pending | pending | 6类材料 fixture 已通过双向追踪审计 |
 | 4 | 主题图谱与跨论文研究决策 | queued | - | - | - |
 | 5 | 总门禁、真实回放、独立复核 | queued | - | - | - |
 | 6 | 回炉、文档和最终验收 | queued | - | - | - |
@@ -36,3 +36,11 @@
 - Git：阶段 2 commit 待提交。
 - 下一步：建立 Material→Evidence→Claim→Report/Topic 的闭环审计。
 '
+### 阶段 3
+
+- 目标：证明图表、PDF、数据、代码和参考文献不是只登记路径，而是真正进入 Evidence、Claim 和报告。
+- 已完成：扩展数据模式与材料合同；台账增加 reference_role、报告/主题段落、occurrence 和渲染状态；图表卡增加实际消费者；材料审计支持消费者文件、ID 解析、核心材料报告段落和受控未使用状态；新增独立追踪入口。
+- 验证：6 项单元测试通过；隔离 fixture 的 6 类材料全部通过，包含 core-argument、result、method、reproduction、context-only 和 unavailable。
+- 未解决：主题图谱和跨论文比较仍未强制研究决策结构；总门禁尚未纳入新追踪脚本。
+- Git：阶段 3 commit 待提交。
+- 下一步：重建主题研究图谱和跨论文比较。

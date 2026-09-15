@@ -1,0 +1,7 @@
+material_id,material_path,kind,source_version,sha256,usage_status,actual_consumer,evidence_ids,claim_ids,matrix_field_ids,reference_role,report_sections,topic_sections,occurrence_locators,render_status,notes
+MAT-P001-PDF,04-证据仓/P001--2024--fixture/source/P001--2024--fixture.pdf,pdf,v1,,core-argument,03-逐篇精读/P001--2024--fixture/02-深度说理报告.md,E-P001-PDF-01,CLM-P001-001,F02;F06,,1;8,,,passed,
+MAT-P001-FIG-01,04-证据仓/P001--2024--fixture/figures/valid.png,figure,v1,,result,03-逐篇精读/P001--2024--fixture/02-深度说理报告.md,E-P001-FIG-01,CLM-P001-001,F08,,7,,,passed,
+MAT-P001-DATA-01,04-证据仓/P001--2024--fixture/data/data.csv,dataset,v1,,method,03-逐篇精读/P001--2024--fixture/02-深度说理报告.md,E-P001-DATA-01,CLM-P001-001,F07;F08,,6,,,not-applicable,
+MAT-P001-CODE-01,04-证据仓/P001--2024--fixture/code/README.md,code,fixture-0001,,reproduction,03-逐篇精读/P001--2024--fixture/02-深度说理报告.md,E-P001-CODE-01,CLM-P001-001,,,10,,,not-applicable,
+MAT-P001-REF-03,04-证据仓/P001--2024--fixture/references/reference-usage.md,reference,v1,,context-only,,,,,context-only,,,Discussion p.3,not-applicable,仅用于术语来源
+MAT-P001-SI-01,04-证据仓/P001--2024--fixture/source/missing-si.pdf,supplementary,v1,,unavailable,,,,,,,,,not-applicable,未获得补充材料，影响附录复核

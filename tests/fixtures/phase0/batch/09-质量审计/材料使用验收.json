@@ -1,7 +1,12 @@
 {
-  "passed": false,
-  "ledger_missing": true,
-  "material_count": 0,
+  "schema_version": 4,
+  "passed": true,
+  "ledger": "C:\\Users\\12770\\.codex\\skills\\papaer-record\\tests\\fixtures\\phase0\\batch\\09-质量审计\\材料使用审计.csv",
+  "material_count": 6,
   "missing": [],
-  "invalid": []
+  "invalid": [],
+  "orphan_ids": [],
+  "context_or_unusable": [
+    "MAT-P001-REF-03"
+  ]
 }

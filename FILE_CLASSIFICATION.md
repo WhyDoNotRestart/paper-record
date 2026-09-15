@@ -53,7 +53,7 @@
 | `references/hot-paper-selection-policy.md` | 筛选规范 | 修正当前日期并明确热门度、直接性和版本治理 | 已修改 | 2026-09-14 |
 | `references/evidence-claim-model.md` | 证据模型 | 与3.0材料台账、Claim链和矩阵字段保持一致 | 已修改 | 2026-09-14 |
 | `references/skill-improvement-plan-20260915.md` | Skill治理 | Paper Record 3.1 分阶段优化计划与完成标准 | 已创建 | 2026-09-15 |
-| `references/optimization-log-20260915.md` | Skill治理 | 逐阶段优化目标、门禁、commit、push和精简报告记录；补充阶段 5 提交和阶段 6 最终验收状态 | 已修改 | 2026-09-15 |
+| `references/optimization-log-20260915.md` | Skill治理 | 逐阶段优化目标、门禁、commit、push和精简报告记录；补充阶段 5、阶段 6 提交、推送和最终验收状态 | 已修改 | 2026-09-15 |
 | `tests/fixtures/phase0/README.md` | 测试夹具 | 阶段 0 隔离回放说明 | 已创建 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/layout-version.json` | 测试夹具 | 隔离批次布局版本 | 已创建 | 2026-09-15 |
 | `tests/fixtures/phase0/batch/00-开始/entry.md` | 测试夹具 | 复现 Markdown、Obsidian、图片和 PDF 链接问题 | 已创建 | 2026-09-15 |
@@ -146,4 +146,4 @@
 | `tests/fixtures/phase5-valid/batch/09-质量审计/文件分类清单.md` | 质量审计 | 完整回放 fixture 的文件分类清单 | 已修改 | 2026-09-15 |
 | `tests/fixtures/phase5-valid/batch/09-质量审计/reading-tasks/READ-P001-v1.md` | 全文通读审计 | P001 完整通读任务和独立复核分工 | 已创建 | 2026-09-15 |
 | `tests/fixtures/phase5-valid/batch/09-质量审计/independent-reviews/REVIEW-P001-v1.md` | 独立复核 | P001 基于原始材料的第二遍抽查签收 | 已创建 | 2026-09-15 |
-| `references/paper-record-3.1-optimization-report-20260915.md` | Skill治理 | 最终 Paper Record 3.1 打磨前后差距、阶段 commit、回放证据、边界和下一轮观察点 | 已创建 | 2026-09-15 |
+| `references/paper-record-3.1-optimization-report-20260915.md` | Skill治理 | 最终 Paper Record 3.1 打磨前后差距、阶段 commit、回放证据、边界和下一轮观察点，补充最终交付 commit | 已修改 | 2026-09-15 |

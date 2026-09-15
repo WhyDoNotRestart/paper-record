@@ -26,7 +26,7 @@
 | 3 材料证据闭环 | 通过；6 类材料和反向 ID 审计 | `5f69a63` |
 | 4 主题研究图谱 | 通过；教程化主题拒绝，研究机会结构化 | `7fc4c5c` |
 | 5 总门禁与真实回放 | 通过；完整 v3 fixture 全绿，独立复核门禁已接入 | `da9c6d9` |
-| 6 回炉与最终交付 | 进行中；本报告和入口文档已更新 | 待提交 |
+| 6 回炉与最终交付 | 通过；SKILL、README、最终报告、分类清单和最终门禁已完成 | `a494490` |
 
 ## 三、阶段 5 全绿回放证据
 
@@ -49,7 +49,7 @@ python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/run_quality_gates.py --root tests/fixtures/phase5-valid/batch --skill-root .
 ```
 
-结果：8 项单元测试通过；完整回放总门禁 `passed=true`，9 个脚本检查和 3 种 renderer 均通过。
+结果：8 项单元测试通过；`check_skill_consistency.py` 通过；完整回放总门禁 `passed=true`，9 个脚本检查和 3 种 renderer 均通过。
 
 ## 四、仍然明确保留的边界
 

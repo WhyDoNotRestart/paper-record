@@ -14,7 +14,7 @@
 | 3 | Material→Evidence→Claim 闭环 | passed | pending | pending | 6类材料 fixture 已通过双向追踪审计 |
 | 4 | 主题图谱与跨论文研究决策 | passed | pending | pending | 已加入决策型协议、主题模板和教程化拒绝门禁 |
 | 5 | 总门禁、真实回放、独立复核 | passed | `da9c6d9` | pushed | 完整 v3 单论文回放全绿；独立复核门禁和 3 种 renderer 已接入 |
-| 6 | 回炉、文档和最终验收 | in-progress | - | - | 已更新 SKILL、README 和最终打磨报告，等待最终总门禁 |
+| 6 | 回炉、文档和最终验收 | passed | `a494490` | pushed | SKILL、README、最终打磨报告和最终总门禁完成；保留真实回放边界 |
 
 ## 阶段报告记录\n\n### 阶段 1\n\n- 目标：让链接审计和预览检查文件格式、媒体内容和渲染状态。\n- 已完成：统一目标类型与媒体校验；新增图片/PDF真实性检查；渲染器支持 markdown/obsidian/html；测试改用有效 PNG并增加无效图片拒绝用例。\n- 验证：4项单元测试通过；有效报告 HTML 预览通过；包含无效图片的批次被 `check_links.py` 和渲染器拒绝。浏览器自动化环境不可用，未进行 GUI 浏览器实测。\n- 未解决：需要在后续阶段增加真实浏览器/独立HTML加载检查与材料闭环。\n- Git：阶段 1 commit 待提交。\n- 下一步：重建逐篇深度报告与语义门禁。
 
@@ -60,3 +60,13 @@
 - 未解决：CUA 浏览器环境仍因 `Codex auth token is unavailable` 无法进行 GUI 点击；当前验证是离线 renderer + 媒体解码 + 第二遍静态复核，不替代真实生产批次复核。
 - Git：阶段 5 修改待提交，门禁结果已全绿。
 - 下一步：进入阶段 6，回炉文档、触发说明、最终报告和最终总门禁。
+
+
+### 阶段 6
+
+- 目标：完成回炉、文档、触发说明、最终优化报告和最终总门禁。
+- 已完成：更新 `SKILL.md`、`README.md`、`FILE_CLASSIFICATION.md`；生成最终优化报告；记录阶段 0–5 commit、回放数字、独立复核结果和未解决边界。
+- 验证：`check_skill_consistency.py` 通过；8 项单元测试通过；全部脚本可编译；完整 v3 fixture 的 9 个脚本检查和 Markdown/Obsidian/HTML 三种 renderer 全部通过。
+- 未解决：没有 GUI 浏览器/Obsidian 活体验收，CUA 返回 `Codex auth token is unavailable`；真实生产批次仍需使用者独立复核。
+- Git：`a494490` 已提交并推送到 `codex/luban-paper-record-3.1`。
+- 下一步：从真实用户回放反馈启动下一轮 revision，不修改旧批次或 `main`。
